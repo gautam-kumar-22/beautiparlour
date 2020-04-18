@@ -106,8 +106,8 @@
 										<img src="{% static 'images/icon-map-small.png' %}" class="icon">
 										<p><strong>{{company_info.company_name}}</strong>{{company_info.address}}</p>
 									</address>
-									<a href="mailto:contact@companyname.com" class="mail"><img src="{% static 'images/icon-envelope-small.png' %}" class="icon">{{company_info.email}}</a>
-									<a href="tel:(500)942042259" class="phone"><img src="{% static 'images/icon-phone-small.png' %}" class="icon">{{company_info.phone_number}}</a>
+									<a href="mailto:{{company_info.email}}" class="mail"><img src="{% static 'images/icon-envelope-small.png' %}" class="icon">{{company_info.email}}</a>
+									<a href="tel:{{company_info.phone_number}}" class="phone"><img src="{% static 'images/icon-phone-small.png' %}" class="icon">{{company_info.phone_number}}</a>
 								</div>
 							</div>
 						</div>
@@ -116,10 +116,10 @@
 								<h3 class="widget-title">Social Media</h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident et praesentium </p>
 								<div class="social-links">
-									<a href={{company_info.fb}}><i class="fa fa-facebook"></i></a>
-									<a href={{company_info.twitter}}><i class="fa fa-twitter"></i></a>
-									<a href={{company_info.google}}><i class="fa fa-google-plus"></i></a>
-									<a href={{company_info.pinterest}}><i class="fa fa-pinterest"></i></a>
+									<a href={{company_info.fb}} target="_blank"><i class="fa fa-facebook"></i></a>
+									<a href={{company_info.twitter}} target="_blank"><i class="fa fa-twitter"></i></a>
+									<a href={{company_info.google}} target="_blank"><i class="fa fa-google-plus"></i></a>
+									<a href={{company_info.pinterest}} target="_blank"><i class="fa fa-pinterest"></i></a>
 								</div>
 							</div>
 						</div>
