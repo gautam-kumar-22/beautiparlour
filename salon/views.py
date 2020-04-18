@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView
 from django.views.generic import View, ListView
 
 from .models import *
@@ -61,8 +63,8 @@ class ServiceListView(ListView):
             context['content'] = Content.objects.filter(name="service")[0]
         if Facilities.objects.filter(gender="M"):
             context['male_facilities_list'] = Facilities.objects.filter(gender="M")
-        if Facilities.objects.filter(gender="F"):
-            context['female_facilities_list'] = Facilities.objects.filter(gender="F")
+        if Facilities.objects.filter(gender="female"):
+            context['female_facilities_list'] = Facilities.objects.filter(gender="female")
         return context
 
 
@@ -80,4 +82,23 @@ class GalleryListView(ListView):
         if Content.objects.filter(name="footer"):
             context['footer_info'] = Content.objects.filter(name="footer")[0]
         context['category_list'] = Category.objects.all()
+        return context
+
+
+class ContactUsView(CreateView):
+
+    model = ContactUs
+    template_name = "contact.html"
+    fields = ['name', 'email', 'website', 'message']
+    success_url = reverse_lazy('contact-us')
+
+    def get_context_data(self, **kwargs):
+        """Add section data in context."""
+        context = super(ContactUsView, self).get_context_data(**kwargs)
+        if CompanyInfo.objects.all():
+            context['company_info'] = CompanyInfo.objects.all()[0]
+        if Content.objects.filter(name="footer"):
+            context['footer_info'] = Content.objects.filter(name="footer")[0]
+        if Content.objects.filter(name="contact"):
+            context['content'] = Content.objects.filter(name="contact")[0]
         return context

@@ -27,7 +27,7 @@
 			
 			<header class="site-header">
 				<div class="container">
-					<a id="branding" href="index.html">
+					<a id="branding" href="{% url 'home' %}">
 						{% if company_info.logo %}
 							<img src={{company_info.logo.url}} alt="Company name" class="logo">
 						{% else %}
@@ -48,7 +48,7 @@
 							<li class="menu-item"><a href="{% url 'about' %}">About</a></li>
 							<li class="menu-item"><a href="{% url 'service' %}">Services</a></li>
 							<li class="menu-item current-menu-item"><a href="{% url 'gallery' %}">Gallery</a></li>
-							<li class="menu-item"><a href="#">Contact</a></li>
+							<li class="menu-item"><a href="{% url 'contact-us' %}">Contact</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
