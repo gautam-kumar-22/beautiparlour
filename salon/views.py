@@ -13,10 +13,14 @@ class HomeListView(ListView):
     def get_context_data(self, **kwargs):
         """Add section data in context."""
         context = super(HomeListView, self).get_context_data(**kwargs)
-        context['service_list'] = Service.objects.all()[:4]
-        context['aboutus'] = AboutUs.objects.all()[0]
-        context['company_info'] = CompanyInfo.objects.all()[0]
-        context['footer_info'] = Content.objects.filter(name="footer")[0]
+        if Service.objects.all():
+            context['service_list'] = Service.objects.all()[:4]
+        if AboutUs.objects.all():
+            context['aboutus'] = AboutUs.objects.all()[0]
+        if CompanyInfo.objects.all():
+            context['company_info'] = CompanyInfo.objects.all()[0]
+        if Content.objects.filter(name="footer"):
+            context['footer_info'] = Content.objects.filter(name="footer")[0]
         return context
 
 
@@ -29,10 +33,14 @@ class AboutListView(ListView):
     def get_context_data(self, **kwargs):
         """Add section data in context."""
         context = super(AboutListView, self).get_context_data(**kwargs)
-        context['aboutus'] = AboutUs.objects.all()[0]
-        context['company_info'] = CompanyInfo.objects.all()[0]
-        context['footer_info'] = Content.objects.filter(name="footer")[0]
-        context['content'] = Content.objects.filter(name="about")[0]
+        if AboutUs.objects.all():
+            context['aboutus'] = AboutUs.objects.all()[0]
+        if CompanyInfo.objects.all():
+            context['company_info'] = CompanyInfo.objects.all()[0]
+        if Content.objects.filter(name="footer"):
+            context['footer_info'] = Content.objects.filter(name="footer")[0]
+        if Content.objects.filter(name="about"):
+            context['content'] = Content.objects.filter(name="about")[0]
         return context
 
 
@@ -45,11 +53,16 @@ class ServiceListView(ListView):
     def get_context_data(self, **kwargs):
         """Add section data in context."""
         context = super(ServiceListView, self).get_context_data(**kwargs)
-        context['company_info'] = CompanyInfo.objects.all()[0]
-        context['footer_info'] = Content.objects.filter(name="footer")[0]
-        context['content'] = Content.objects.filter(name="service")[0]
-        context['male_facilities_list'] = Facilities.objects.filter(gender="M")
-        context['female_facilities_list'] = Facilities.objects.filter(gender="F")
+        if CompanyInfo.objects.all():
+            context['company_info'] = CompanyInfo.objects.all()[0]
+        if Content.objects.filter(name="footer"):
+            context['footer_info'] = Content.objects.filter(name="footer")[0]
+        if Content.objects.filter(name="service"):
+            context['content'] = Content.objects.filter(name="service")[0]
+        if Facilities.objects.filter(gender="M"):
+            context['male_facilities_list'] = Facilities.objects.filter(gender="M")
+        if Facilities.objects.filter(gender="F"):
+            context['female_facilities_list'] = Facilities.objects.filter(gender="F")
         return context
 
 
@@ -62,7 +75,9 @@ class GalleryListView(ListView):
     def get_context_data(self, **kwargs):
         """Add section data in context."""
         context = super(GalleryListView, self).get_context_data(**kwargs)
-        context['company_info'] = CompanyInfo.objects.all()[0]
-        context['footer_info'] = Content.objects.filter(name="footer")[0]
+        if CompanyInfo.objects.all():
+            context['company_info'] = CompanyInfo.objects.all()[0]
+        if Content.objects.filter(name="footer"):
+            context['footer_info'] = Content.objects.filter(name="footer")[0]
         context['category_list'] = Category.objects.all()
         return context

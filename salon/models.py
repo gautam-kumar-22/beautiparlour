@@ -42,6 +42,9 @@ class Slider(TimeStampedModel):
     def __str__(self):
         return self.topic
 
+    class Meta:
+        verbose_name_plural = "Slider"
+
 
 class Service(TimeStampedModel):
     """Service model."""
@@ -54,6 +57,9 @@ class Service(TimeStampedModel):
     def __str__(self):
         return self.topic
 
+    class Meta:
+        verbose_name_plural = "Service"
+
 
 class Category(TimeStampedModel):
     """Category model."""
@@ -62,6 +68,9 @@ class Category(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = "Category"
 
 
 class Gallery(TimeStampedModel):
@@ -74,6 +83,9 @@ class Gallery(TimeStampedModel):
 
     def __str__(self):
         return self.topic
+
+    class Meta:
+        verbose_name_plural = "Gallery"
 
 
 class CompanyInfo(TimeStampedModel):
@@ -95,6 +107,9 @@ class CompanyInfo(TimeStampedModel):
     def __str__(self):
         return self.company_name
 
+    class Meta:
+        verbose_name_plural = "CompanyInfo"
+
 
 class AboutUs(TimeStampedModel):
     """AboutUs model."""
@@ -107,6 +122,9 @@ class AboutUs(TimeStampedModel):
     def __str__(self):
         return self.discription
 
+    class Meta:
+        verbose_name_plural = "AboutUs"
+
 
 class Passion(TimeStampedModel):
     """Passion model."""
@@ -116,6 +134,9 @@ class Passion(TimeStampedModel):
 
     def __str__(self):
         return self.topic
+
+    class Meta:
+        verbose_name_plural = "Passion"
 
 
 class ContactUs(TimeStampedModel):
@@ -129,6 +150,9 @@ class ContactUs(TimeStampedModel):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = "ContactUs"
+
 class Content(TimeStampedModel):
     """Content model."""
 
@@ -137,6 +161,9 @@ class Content(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = "Content"
 
 
 class Facilities(TimeStampedModel):
@@ -148,3 +175,6 @@ class Facilities(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = "Facilities"
