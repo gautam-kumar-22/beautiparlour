@@ -36,7 +36,7 @@ class Slider(TimeStampedModel):
 
     topic = models.CharField(max_length=50, null=True, blank=True)
     sub_topic = models.CharField(max_length=50, null=True, blank=True)
-    discription = RichTextUploadingField()
+    discription = RichTextUploadingField(null=True, blank=True)
     image = models.FileField(null=True, blank=True)
 
     def __str__(self):
@@ -50,7 +50,7 @@ class Service(TimeStampedModel):
     """Service model."""
 
     topic = models.CharField(max_length=50, null=True, blank=True)
-    discription = RichTextUploadingField()
+    discription = RichTextUploadingField(null=True, blank=True)
     price = models.FloatField(null=True, blank=True)
     image = models.FileField(null=True, blank=True)
 
@@ -78,7 +78,7 @@ class Gallery(TimeStampedModel):
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     topic = models.CharField(max_length=255, null=True, blank=True)
-    discription = RichTextUploadingField()
+    discription = RichTextUploadingField(null=True, blank=True)
     image = models.FileField(null=True, blank=True)
 
     def __str__(self):
@@ -98,7 +98,7 @@ class CompanyInfo(TimeStampedModel):
     twitter = models.URLField(max_length=200, null=True, blank=True)
     google = models.URLField(max_length=200, null=True, blank=True)
     pinterest = models.URLField(max_length=200, null=True, blank=True)
-    discription = RichTextUploadingField()
+    discription = RichTextUploadingField(null=True, blank=True)
     timing = models.CharField(max_length=254, null=True, blank=True)
     company_name = models.CharField(max_length=254, null=True, blank=True)
     logo = models.FileField(null=True, blank=True)
@@ -115,8 +115,8 @@ class AboutUs(TimeStampedModel):
     """AboutUs model."""
 
     topic = models.CharField(max_length=255, null=True, blank=True)
-    discription = RichTextUploadingField()
-    discription2 = RichTextUploadingField()
+    discription = RichTextUploadingField(null=True, blank=True)
+    discription2 = RichTextUploadingField(null=True, blank=True)
     image = models.FileField(null=True, blank=True)
 
     def __str__(self):
@@ -130,7 +130,7 @@ class Passion(TimeStampedModel):
     """Passion model."""
 
     topic = models.CharField(max_length=255, null=True, blank=True)
-    discription = RichTextUploadingField()
+    discription = RichTextUploadingField(null=True, blank=True)
 
     def __str__(self):
         return self.topic
@@ -145,7 +145,7 @@ class ContactUs(TimeStampedModel):
     name = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField(max_length=200, null=True, blank=True) 
     website = models.URLField(max_length=200, null=True, blank=True)
-    message = RichTextUploadingField()
+    message = RichTextUploadingField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -157,7 +157,7 @@ class Content(TimeStampedModel):
     """Content model."""
 
     name = models.CharField(choices=CONTENT_CHOICES, max_length=200, null=True, blank=True)
-    discription = RichTextUploadingField()
+    discription = RichTextUploadingField(null=True, blank=True)
 
     def __str__(self):
         return self.name
