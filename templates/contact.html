@@ -29,7 +29,7 @@
 				<div class="container">
 					<a id="branding" href="{% url 'home' %}">
 						{% if company_info.logo %}
-							<img src={{company_info.logo.url}} alt="Company name" class="logo">
+							<img src={{company_info.logo.url}} alt="Company name" class="logo" height="50" width="50">
 						{% else %}
 							<img src="{% static 'images/logo.png' %}" alt="Company name" class="logo">
 						{% endif %}
@@ -115,7 +115,6 @@
 						<div class="col-md-3">
 							<div class="widget">
 								<h3 class="widget-title">Social Media</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident et praesentium </p>
 								<div class="social-links">
 									<a href={{company_info.fb}} target="_blank"><i class="fa fa-facebook"></i></a>
 									<a href={{company_info.twitter}} target="_blank"><i class="fa fa-twitter"></i></a>
@@ -127,11 +126,7 @@
 						<div class="col-md-6">
 							<div class="widget">
 								<h3 class="widget-title">Newsletter</h3>
-								<p>{{company_info.description|safe}} </p>
-								<form action="#" class="subscribe-form">
-									<input type="email" placeholder="Enter our email...">
-									<input type="submit" value="Sign up">
-								</form>
+								<p>{{company_info.discription|safe}} </p>
 							</div>
 						</div>
 					</div>
