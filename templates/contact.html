@@ -68,7 +68,8 @@
 									{% csrf_token %}
 									<input type="text" id="id_name" name="name" placeholder="Name...">
 									<input type="text" id="id_email" name="email" placeholder="Email...">
-									<input type="text" id="id_website" name="website" placeholder="Website...">
+									<input type="text" id="id_phone_number" name="phone_number" placeholder="phone number...">
+									<input type="text" id="id_address" name="address" placeholder="address...">
 									<textarea id="id_message" name="message" placeholder="Message..."></textarea>
 									<div class="text-right">
 										<button class="button large" type="submit">Send Message</button>
@@ -81,11 +82,11 @@
 									<div class="address-info">
 										<address>
 											<img src="{% static 'images/icon-map-small.png' %}" class="icon">
-											<p><strong>Company name</strong> 563 Avenue Street, New York</p>
+											<p><strong>{{company_info.company_name}}</strong>{{company_info.address}}</p>
 										</address>
 										<div class="contact-info">
-											<a href="mailto:contact@companyname.com" class="mail"><img src="{% static 'images/icon-envelope-small.png' %}" class="icon">contact@companyname.com</a>
-											<a href="tel:(500)942042259" class="phone"><img src="{% static 'images/icon-phone-small.png' %}" class="icon">(500)942042259</a>
+											<a href="mailto:{{company_info.email}}" class="mail"><img src="{% static 'images/icon-envelope-small.png' %}" class="icon">{{company_info.email}}</a>
+											<a href="tel:{{company_info.phone_number}}" class="phone"><img src="{% static 'images/icon-phone-small.png' %}" class="icon">{{company_info.phone_number}}</a>
 										</div>
 									</div>
 								</div>

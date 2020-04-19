@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic import View, ListView
 
 from .models import *
+from .services import send_email_to_admin
 
 # Create your views here.
 class HomeListView(ListView):
@@ -89,7 +90,7 @@ class ContactUsView(CreateView):
 
     model = ContactUs
     template_name = "contact.html"
-    fields = ['name', 'email', 'website', 'message']
+    fields = ['name', 'email', 'phone_number', 'address', 'message']
     success_url = reverse_lazy('contact-us')
 
     def get_context_data(self, **kwargs):
@@ -102,3 +103,14 @@ class ContactUsView(CreateView):
         if Content.objects.filter(name="contact"):
             context['content'] = Content.objects.filter(name="contact")[0]
         return context
+
+    def form_valid(self, form):
+        ctx = {
+            'name':self.request.POST.get('name'),
+            'email': self.request.POST.get('email'),
+            'phone_number': self.request.POST.get('phone_number'),
+            'address': self.request.POST.get('address'),
+            'message': self.request.POST.get('message')
+        }
+        send_email_to_admin(ctx)
+        return super().form_valid(form)
